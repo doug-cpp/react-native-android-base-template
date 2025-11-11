@@ -1,4 +1,4 @@
-package com.react-native-android-base-template
+package com.basetemplate
 
 import android.app.Application
 import com.facebook.react.PackageList
