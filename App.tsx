@@ -1,41 +1,36 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React from 'react';
+import { Text, StyleSheet, useColorScheme, StatusBar } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
-
-function App() {
+function AppContent() {
   const isDarkMode = useColorScheme() === 'dark';
+  const textColor = isDarkMode ? 'white' : 'black';
 
   return (
-    <SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
+      <Text style={{ color: textColor, fontSize: 24 }}>
+        Android POC Base Template
+      </Text>
+      <Text style={{ color: textColor, fontSize: 16 }}>
+        Let's implement our functionality here
+      </Text>
+    </SafeAreaView>
   );
 }
 
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
+export default function App() {
   return (
-    <View style={styles.container}>
-    {/* <SomeImportedComponent/> */}
-    </View>
+    <SafeAreaProvider>
+      <AppContent />
+    </SafeAreaProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
-
-export default App;
